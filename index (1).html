@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Common Grounds Community Festival at the Lookout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Darker+Grotesque:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --earth-clay: #C8956B;
+            --earth-moss: #5A6B4C;
+            --earth-sage: #8B9B7F;
+            --earth-bark: #4A3F35;
+            --earth-sand: #E8DCC4;
+            --earth-leaf: #7A8B6F;
+            --earth-cream: #F5F1E8;
+            --earth-soil: #3D3228;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Darker Grotesque', sans-serif;
+            color: var(--earth-soil);
+            background: linear-gradient(rgba(245, 241, 232, 0.85), rgba(245, 241, 232, 0.88)),
+                        url('https://images.unsplash.com/photo-1560493676-04071c5f467b?w=1600&q=80') fixed center/cover;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(90, 107, 76, 0.85) 0%, rgba(122, 139, 111, 0.75) 100%),
+                        url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=1600&q=80&auto=format') center/cover;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.03"/></svg>');
+            pointer-events: none;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 10;
+            max-width: 900px;
+            padding: 2rem;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-family: 'Crimson Text', serif;
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            text-shadow: 2px 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 1.2s ease-out 0.3s backwards;
+        }
+
+        .event-details {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 2.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeInUp 1.2s ease-out 0.6s backwards;
+        }
+
+        .event-details p {
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+        }
+
+        /* Organic divider */
+        .divider {
+            height: 80px;
+            background: var(--earth-cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: -5%;
+            right: -5%;
+            height: 120px;
+            background: var(--earth-moss);
+            border-radius: 50%;
+            transform: scaleX(1.5);
+        }
+
+        /* Main content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        section:nth-child(1) { animation-delay: 0.2s; }
+        section:nth-child(2) { animation-delay: 0.4s; }
+        section:nth-child(3) { animation-delay: 0.6s; }
+        section:nth-child(4) { animation-delay: 0.8s; }
+
+        h2 {
+            font-family: 'Crimson Text', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--earth-moss);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(to right, var(--earth-clay), transparent);
+        }
+
+        .intro {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: var(--earth-bark);
+            max-width: 800px;
+            margin-bottom: 3rem;
+        }
+
+        /* Activities Grid */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .activity-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(90, 107, 76, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(90, 107, 76, 0.15);
+        }
+
+        .activity-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .activity-content {
+            padding: 2rem;
+        }
+
+        .activity-card h3 {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.8rem;
+            color: var(--earth-moss);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .activity-card p {
+            font-size: 1.1rem;
+            color: var(--earth-bark);
+            line-height: 1.6;
+        }
+
+        /* Benefits section */
+        .benefits {
+            background: linear-gradient(135deg, var(--earth-sage) 0%, var(--earth-leaf) 100%);
+            padding: 4rem 2rem;
+            border-radius: 16px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefits::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .benefits h2 {
+            color: white;
+        }
+
+        .benefits h2::after {
+            background: linear-gradient(to right, var(--earth-sand), transparent);
+        }
+
+        .benefits-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .benefits-list li {
+            font-size: 1.2rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .benefits-list li::before {
+            content: '🌿';
+            position: absolute;
+            left: 0;
+            font-size: 1.3rem;
+        }
+
+        /* Location section */
+        .location {
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(90, 107, 76, 0.1);
+        }
+
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .location-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .location-info h3 {
+            font-family: 'Crimson Text', serif;
+            font-size: 2rem;
+            color: var(--earth-moss);
+            margin-bottom: 1.5rem;
+        }
+
+        .location-info p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--earth-bark);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--earth-soil);
+            color: var(--earth-sand);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 5rem;
+        }
+
+        footer p {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .acknowledgment {
+            font-style: italic;
+            opacity: 0.9;
+            margin-top: 1.5rem;
+            font-size: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .location-content {
+                grid-template-columns: 1fr;
+            }
+
+            .activities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll animations */
+        @media (prefers-reduced-motion: no-preference) {
+            .scroll-reveal {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: opacity 0.6s ease, transform 0.6s ease;
+            }
+
+            .scroll-reveal.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="hero-content">
+            <h1>Common Grounds Community Festival</h1>
+            <p class="subtitle">at the Lookout</p>
+            <div class="event-details">
+                <p><strong>A celebration of community, sustainability & connection</strong></p>
+                <p>📍 40 Lady Wakehurst Drive, Otford</p>
+                <p>🌱 Dharawal Country, adjacent to Royal National Park</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="divider"></div>
+
+    <div class="container">
+        <section>
+            <h2>Welcome to the Festival</h2>
+            <p class="intro">
+                The Common Grounds Community Festival at the Lookout is a free, inclusive community event designed to bring people together through shared learning, creativity, environmental stewardship and local culture. Join us for a day of hands-on workshops, guided experiences and creative activities that celebrate sustainable living, local food systems, bush regeneration and the arts.
+            </p>
+            <p class="intro">
+                Open to all residents across the Wollongong Local Government Area, with a special invitation to coastal Wollongong communities. All workshops and activities are designed to be informal, flexible and accessible—engage at your own pace.
+            </p>
+        </section>
+
+        <section>
+            <h2>Festival Activities</h2>
+            <div class="activities-grid">
+                <div class="activity-card scroll-reveal">
+                    <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?w=800&q=80&auto=format" alt="Permaculture garden" class="activity-image" loading="eager">
+                    <div class="activity-content">
+                        <h3>Permaculture Workshops</h3>
+                        <p>Hands-on introduction to syntropic agriculture and regenerative food systems. Learn about layered planting, food forests, soil regeneration, mulching and water-wise practices.</p>
+                    </div>
+                </div>
+
+                <div class="activity-card scroll-reveal">
+                    <img src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=800&q=80&auto=format" alt="Fresh vegetables" class="activity-image" loading="eager">
+                    <div class="activity-content">
+                        <h3>Local Food Swap</h3>
+                        <p>A community-led food and seed swap encouraging sharing of surplus produce, strengthening food resilience and reducing waste. Bring what you can, take what you need.</p>
+                    </div>
+                </div>
+
+                <div class="activity-card scroll-reveal">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80&auto=format" alt="Australian bushland" class="activity-image" loading="eager">
+                    <div class="activity-content">
+                        <h3>Bush Regeneration Tours</h3>
+                        <p>Guided tours exploring sub-tropical and coastal vegetation. Focus on native plant identification, weed management, erosion control and caring for bushland adjoining the Royal National Park.</p>
+                    </div>
+                </div>
+
+                <div class="activity-card scroll-reveal">
+                    <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&q=80&auto=format" alt="Pottery workshop" class="activity-image" loading="eager">
+                    <div class="activity-content">
+                        <h3>Creative Workshops</h3>
+                        <p>Pottery and art workshops facilitated by local artists, offering inclusive, nature-inspired creative experiences for participants of all ages and skill levels.</p>
+                    </div>
+                </div>
+
+                <div class="activity-card scroll-reveal">
+                    <img src="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?w=800&q=80&auto=format" alt="Acoustic music" class="activity-image" loading="eager">
+                    <div class="activity-content">
+                        <h3>Live Local Music</h3>
+                        <p>Simple acoustic performances by local musicians. Unamplified or lightly amplified to ensure minimal noise impact, perfect for our beautiful bushland setting.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="benefits">
+                <h2>Community Benefit</h2>
+                <ul class="benefits-list">
+                    <li>Strengthens social connection and community bonds</li>
+                    <li>Provides accessible environmental education</li>
+                    <li>Supports local artists and musicians</li>
+                    <li>Encourages sustainable food production and sharing</li>
+                    <li>Fosters long-term stewardship of local landscapes</li>
+                    <li>Celebrates our connection to Dharawal Country</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <div class="location">
+                <h2>Location & Setting</h2>
+                <div class="location-content">
+                    <div class="location-info">
+                        <h3>The Lookout, Otford</h3>
+                        <p><strong>Address:</strong> 40 Lady Wakehurst Drive, Otford</p>
+                        <p>
+                            Nestled on the edge of the magnificent Royal National Park on Dharawal Country, our venue offers a unique bushland setting that celebrates the natural beauty of coastal Wollongong. The property borders sub-tropical and coastal vegetation communities, providing the perfect backdrop for our festival of sustainability and connection to Country.
+                        </p>
+                        <p>
+                            Easily accessible for all Wollongong residents, with a special welcome to those from coastal communities. The site offers a peaceful, inspiring environment where learning and creativity flourish.
+                        </p>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=800&q=80&auto=format" alt="Coastal landscape" class="location-image" loading="eager">
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Safety & Accessibility</h2>
+            <p class="intro">
+                Your safety and comfort are our priority. The event is covered by $20 million public liability insurance. We'll have clear site boundaries, first aid availability, supervised workshop areas, and carefully managed low-noise music. Event coordinators will monitor all activities to ensure participant safety and environmental care throughout the day.
+            </p>
+            <p class="intro">
+                All activities are designed to be accessible and welcoming to people of all ages, abilities, and backgrounds. If you have specific accessibility needs, please reach out—we're here to help.
+            </p>
+        </section>
+    </div>
+
+    <footer>
+        <p><strong>Common Grounds Community Festival at the Lookout</strong></p>
+        <p>A free community event for the Wollongong region</p>
+        <p class="acknowledgment">
+            We acknowledge the Dharawal people as the Traditional Custodians of the land on which this festival takes place. We pay our respects to Elders past, present and emerging, and extend that respect to all Aboriginal and Torres Strait Islander peoples.
+        </p>
+    </footer>
+
+    <script>
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
